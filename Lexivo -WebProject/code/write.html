@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Write - Lexivo (demo)</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="logo" href="inde.html"><img src="../images/logo/onlylogo.png" alt="Lexivo" /></a>
+      <nav class="nav-right">
+        <a href="profile.html" id="link-profile" class="nav-link">Profile</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1>Create a story</h1>
+    <div id="write-area">
+      <p id="write-message">Loading...</p>
+      <!-- when authenticated, the button below will be shown -->
+      <div id="write-cta" style="margin-top:18px; display:none;">
+  <a id="btn-create" class="btn btn-primary" href="create-story.html" data-no-auth>Create a new story</a>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    (function(){
+      // Allow access to the write page without requiring authentication.
+      var user = null;
+      try { user = JSON.parse(localStorage.getItem('user') || 'null'); } catch (err) { user = null; }
+      var msg = document.getElementById('write-message');
+      msg.textContent = 'Hello ' + (user && user.username ? user.username : 'writer') + ", start your story below (demo).";
+      // show CTA (available for all users)
+      var cta = document.getElementById('write-cta');
+      if (cta) cta.style.display = 'block';
+    })();
+  </script>
+</body>
+</html>

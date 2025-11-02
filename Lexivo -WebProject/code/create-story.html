@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Add Story Info — Lexivo</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Page-specific styles to match the attached mock */
+    .create-header { display:flex; align-items:center; justify-content:space-between; padding:18px 24px; border-bottom:1px solid #f1f1f2; }
+    .create-header .left { display:flex; align-items:center; gap:16px; }
+    .back-btn { display:inline-flex; align-items:center; justify-content:center; width:36px; height:36px; border-radius:6px; background:#fff; border:1px solid #e6e6e6; cursor:pointer; }
+    .create-title { font-weight:700; font-size:20px; }
+    .create-sub { font-size:14px; color:#374151; margin-left:8px; }
+    .create-actions { display:flex; gap:12px; align-items:center; }
+    .create-actions .btn { padding:8px 12px; font-size:14px; }
+    .cover-area { display:flex; justify-content:center; margin:36px 0 18px; }
+    .cover-drop { width:180px; height:240px; background:#f6f6f7; border-radius:6px; display:flex; align-items:center; justify-content:center; border:1px dashed #e9e9ea; color:#9aa0a6; position:relative; }
+    .cover-drop img { max-width:100%; max-height:100%; display:block; }
+    .cover-drop .hint { text-align:center; font-size:13px; }
+
+    .story-card { width:100%; max-width:760px; margin:24px auto 80px; background:#fff; border-radius:10px; padding:22px; box-shadow: 0 12px 40px rgba(10,10,10,0.06); }
+    .tabs { display:flex; gap:12px; align-items:center; border-bottom:1px solid #f1f1f2; padding-bottom:12px; margin-bottom:18px; }
+    .tab { font-weight:700; color:#374151; padding-bottom:8px; }
+    .tab.active { color:#0c6f74; border-bottom:3px solid #f97316; }
+
+    .form-row { margin-bottom:18px; }
+    label.field { display:block; font-weight:700; margin-bottom:8px; color:#111827; }
+    input[type=text], input[type=email], input[type=password], textarea, select { width:100%; padding:10px 12px; border-radius:8px; border:1px solid #e6e6e9; font-size:15px; }
+    textarea { min-height:120px; resize:vertical; }
+
+    .inline { display:flex; gap:12px; align-items:center; }
+    .char-list, .tag-list { display:flex; gap:8px; flex-wrap:wrap; margin-top:8px; }
+    .pill { background:#f1f5f9; color:#0f172a; padding:6px 10px; border-radius:999px; display:inline-flex; gap:8px; align-items:center; font-weight:600; }
+    .pill button { background:transparent; border:none; cursor:pointer; color:#6b7280; font-weight:800; }
+
+    .small { font-size:13px; color:#6b7280; }
+
+    .rating-row { display:flex; align-items:center; gap:12px; }
+    .toggle { display:inline-flex; align-items:center; gap:8px; }
+    .toggle .switch { width:48px; height:28px; background:#e6e6e9; border-radius:999px; position:relative; cursor:pointer; }
+    .toggle .knob { position:absolute; top:3px; left:3px; width:22px; height:22px; background:#fff; border-radius:50%; box-shadow:0 4px 12px rgba(0,0,0,0.12); transition:left .15s ease, background .15s ease; }
+    .switch.on { background: #0c6f74; }
+    .switch.on .knob { left:23px; }
+
+    .form-footer { font-size:13px; color:#6b7280; margin-top:8px; }
+
+    @media (max-width:600px){
+      .story-card { padding:16px; margin:16px; }
+      .cover-drop { width:140px; height:190px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="create-header container">
+    <div class="left">
+      <button class="back-btn" id="backBtn" aria-label="Back">◀</button>
+      <div>
+        <div class="create-title">Add Story Info</div>
+        <div class="create-sub">Untitled Story</div>
+      </div>
+    </div>
+    <div class="create-actions">
+      <button class="btn" id="cancelBtn">Cancel</button>
+      <button class="btn btn-primary" id="skipBtn">Skip</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="cover-area">
+      <div class="cover-drop" id="coverDrop">
+        <div class="hint">Add a cover</div>
+        <input type="file" id="coverInput" accept="image/*" style="display:none" />
+      </div>
+    </div>
+
+    <div class="story-card container" role="region" aria-label="Story details">
+      <div class="tabs">
+        <div class="tab active">Story Details</div>
+      </div>
+
+      <form id="storyForm">
+        <div class="form-row">
+          <label class="field">Title
+            <input type="text" name="title" placeholder="Untitled Story" />
+          </label>
+        </div>
+
+        <div class="form-row">
+          <label class="field">Description <span class="small">i</span>
+            <textarea name="description" placeholder="Write a short description..."></textarea>
+          </label>
+        </div>
+
+        <div class="form-row">
+          <label class="field">Main Characters <span class="small">i</span></label>
+          <div class="inline">
+            <input type="text" id="charInput" placeholder="Name" />
+            <button type="button" class="btn" id="addChar">+</button>
+          </div>
+          <div class="char-list" id="charList"></div>
+        </div>
+
+        <div class="form-row">
+          <label class="field">Category <span class="small">i</span>
+            <select name="category">
+              <option value="">Select a category</option>
+              <option>Romance</option>
+              <option>Fantasy</option>
+              <option>Fanfiction</option>
+              <option>Horror</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="form-row">
+          <label class="field">Tags <span class="small">i</span></label>
+          <div class="inline">
+            <input type="text" id="tagInput" placeholder="Add a tag" />
+            <button type="button" class="btn" id="addTag">Add</button>
+          </div>
+          <div class="tag-list" id="tagList"></div>
+        </div>
+
+        <div class="form-row">
+          <label class="field">Target Audience <span class="small">i</span>
+            <select name="audience">
+              <option value="">Who is your primary audience?</option>
+              <option>All ages</option>
+              <option>Teen</option>
+              <option>Young Adult</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="form-row">
+          <label class="field">Language <span class="small">i</span>
+            <select name="language">
+              <option>English</option>
+              <option>Spanish</option>
+              <option>French</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="form-row">
+          <label class="field">Copyright <span class="small">i</span>
+            <select name="copyright">
+              <option>All Rights Reserved</option>
+              <option>Creative Commons</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="form-row">
+          <label class="field">Rating <span class="small">i</span></label>
+          <div class="rating-row">
+            <div class="small">Mature</div>
+            <div class="toggle">
+              <div class="switch" id="ratingSwitch" role="button" tabindex="0" aria-pressed="false">
+                <div class="knob"></div>
+              </div>
+              <div class="small" id="ratingState">OFF</div>
+            </div>
+          </div>
+          <div class="form-footer">Your story is appropriate for all audiences. The Lexivo community may rate your story Mature. For more info, refer to content guidelines.</div>
+        </div>
+
+        <div style="display:flex; justify-content:flex-end; gap:12px; margin-top:8px;">
+          <button type="button" class="btn" id="saveBtn">Save draft</button>
+          <button type="submit" class="btn btn-primary">Create story</button>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner container">
+      <nav class="footer-nav">
+        <a href="#">Lexivo Originals</a>
+        <a href="#">Try Premium</a>
+        <a href="#">Get the App</a>
+      </nav>
+      <nav class="footer-meta">
+        <a href="#">Terms</a>
+        <a href="#">Privacy</a>
+        <span class="copyright">© <span id="year"></span> Lexivo</span>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    // small helper JS for the create-story page
+    document.getElementById('backBtn').addEventListener('click', function(){ history.back(); });
+    document.getElementById('cancelBtn').addEventListener('click', function(){ history.back(); });
+    document.getElementById('skipBtn').addEventListener('click', function(){ window.location.href = 'inde.html'; });
+
+    // cover upload
+    var coverDrop = document.getElementById('coverDrop');
+    var coverInput = document.getElementById('coverInput');
+    coverDrop.addEventListener('click', function(){ coverInput.click(); });
+    coverInput.addEventListener('change', function(e){
+      var file = e.target.files && e.target.files[0];
+      if (!file) return;
+      var img = document.createElement('img');
+      img.src = URL.createObjectURL(file);
+      coverDrop.innerHTML = '';
+      coverDrop.appendChild(img);
+    });
+
+    // add main characters
+    var addChar = document.getElementById('addChar');
+    var charInput = document.getElementById('charInput');
+    var charList = document.getElementById('charList');
+    function createPill(text, list){
+      var el = document.createElement('span');
+      el.className = 'pill';
+      el.textContent = text;
+      var btn = document.createElement('button'); btn.type='button'; btn.textContent='×';
+      btn.addEventListener('click', function(){ el.remove(); });
+      el.appendChild(btn);
+      list.appendChild(el);
+    }
+    addChar.addEventListener('click', function(){
+      var v = charInput.value && charInput.value.trim();
+      if (!v) return; createPill(v, charList); charInput.value='';
+    });
+    charInput.addEventListener('keydown', function(e){ if (e.key==='Enter'){ e.preventDefault(); addChar.click(); } });
+
+    // tags
+    var addTag = document.getElementById('addTag');
+    var tagInput = document.getElementById('tagInput');
+    var tagList = document.getElementById('tagList');
+    addTag.addEventListener('click', function(){ var v = tagInput.value && tagInput.value.trim(); if(!v) return; createPill(v, tagList); tagInput.value=''; });
+    tagInput.addEventListener('keydown', function(e){ if (e.key==='Enter'){ e.preventDefault(); addTag.click(); } });
+
+    // rating toggle
+    var ratingSwitch = document.getElementById('ratingSwitch');
+    var ratingState = document.getElementById('ratingState');
+    function setRating(on){ if(on){ ratingSwitch.classList.add('on'); ratingState.textContent='ON'; ratingSwitch.setAttribute('aria-pressed','true'); } else { ratingSwitch.classList.remove('on'); ratingState.textContent='OFF'; ratingSwitch.setAttribute('aria-pressed','false'); } }
+    ratingSwitch.addEventListener('click', function(){ setRating(!ratingSwitch.classList.contains('on')); });
+    ratingSwitch.addEventListener('keydown', function(e){ if(e.key==='Enter' || e.key===' '){ e.preventDefault(); ratingSwitch.click(); } });
+
+    // form submit (demo)
+    document.getElementById('storyForm').addEventListener('submit', function(e){ e.preventDefault(); alert('Story created (demo).'); window.location.href='inde.html'; });
+
+    // footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

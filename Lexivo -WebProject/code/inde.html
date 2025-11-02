@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lexivo</title>
+    <link rel="icon" type="image/png" href="../images/logo/onlylogo.png">
+    <link rel="apple-touch-icon" href="../images/logo/onlylogo.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container nav">
+            <a class="logo" href="#" aria-label="Lexivo Home">
+                <img src="../images/logo/onlylogo.png" alt="Lexivo" />
+            </a>
+
+            <nav class="nav-left">
+                <a href="#" id="link-browse" class="nav-link">Browse <span class="caret">▾</span></a>
+                <a href="#" id="link-community" class="nav-link">Community <span class="caret">▾</span></a>
+            </nav>
+
+            <form class="search" role="search" id="site-search">
+                <span class="search-icon" aria-hidden="true"><img src="../images/logo/onlylogo.png" height="23px" width="23px"></span>
+                <input type="search" placeholder="Search" aria-label="Search" name="q" />
+            </form>
+
+            <nav class="nav-right">
+                <a href="write.html" id="link-write" class="nav-link" data-requires-auth>Write <span class="caret">▾</span></a>
+                <a href="#" class="btn btn-primary">Download app</a>
+                                <a href="#" id="link-login" class="nav-link">Log in</a>
+                                <a href="#" id="link-signup" class="nav-link">Sign Up</a>
+
+                                <!-- User area shown when logged in -->
+                                <div id="user-area" class="user-area" hidden>
+                                    <img id="user-avatar" src="../images/logo/onlylogo.png" alt="User avatar" class="user-avatar" width="28" height="28" />
+                                    <span id="user-name" class="user-name"></span>
+                                    <a href="#" id="link-logout" class="nav-link">Log out</a>
+                                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <div class="hero-inner">
+            <div class="hero-left">
+                <h1 class="hero-title">Come for the story. Stay for the connection.</h1>
+                <p class="hero-sub">Stories better than streaming and comments sections better than your group chat.</p>
+                <div class="hero-ctas">
+                    <a href="signup.html" class="btn btn-primary" id="cta-get-started">Get started</a>
+                    <a href="#" class="hero-login">Already have an account? <strong>Log in</strong></a>
+                </div>
+            </div>
+            <div class="hero-right">
+                <img class="hero-art" src="../images/hero-image/Gemini_Generated_Image_7hbqjc7hbqjc7hbq-removebg-preview.png" alt="People illustration" />
+                <div class="message-card message-1">
+                    <img class="msg-avatar" src="../images/profile-card/profile-card-1.png" alt="Profile" />
+                    <div class="msg-body">
+                        <div class="msg-header">romantasygirl3</div>
+                        <div class="msg-text">from banter to BREAKUP in two paragraphs? 🥲</div>
+                    </div>
+                    <div class="msg-like" aria-label="likes">❤<span>95</span></div>
+                </div>
+                <div class="message-card message-2">
+                    <img class="msg-avatar" src="../images/profile-card/profile-card-2.png" alt="Profile" />
+                    <div class="msg-body">
+                        <div class="msg-header">deleted_chapter</div>
+                        <div class="msg-text">What in the Wattpad?! (i love it)</div>
+                    </div>
+                    <div class="msg-like" aria-label="likes">❤<span>113</span></div>
+                </div>
+            </div>
+            </div>
+        </section>
+
+        <!-- Trending Section -->
+        <section class="trending">
+            <div class="trending-inner container">
+                <h2 class="trending-title">Trending now</h2>
+                <div class="trend-wrap">
+                    <button class="trend-btn prev" aria-label="Previous">&#10094;</button>
+                    <div class="trend-scroller" id="trend-scroller">
+                        <a class="trend-card" href="#"><img src="https://picsum.photos/seed/1/350/500" alt="" /></a>
+                        <a class="trend-card" href="#"><img src="https://picsum.photos/seed/2/350/500" alt="" /></a>
+                        <a class="trend-card" href="#"><img src="https://picsum.photos/seed/3/350/500" alt="" /></a>
+                        <a class="trend-card" href="#"><img src="https://picsum.photos/seed/4/350/500" alt="" /></a>
+                        <a class="trend-card" href="#"><img src="https://picsum.photos/seed/5/350/500" alt="" /></a>
+                        <a class="trend-card" href="#"><img src="https://picsum.photos/seed/6/350/500" alt="" /></a>
+                        <a class="trend-card" href="#"><img src="https://picsum.photos/seed/7/350/500" alt="" /></a>
+                    </div>
+                    <button class="trend-btn next" aria-label="Next">&#10095;</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Must-read Fanfiction Section -->
+        <section class="trending fanfiction">
+            <div class="trending-inner container">
+                <h2 class="trending-title">Must-read Fanfiction</h2>
+                <div class="trend-wrap">
+                    <button class="trend-btn prev" aria-label="Previous">&#10094;</button>
+                    <div class="trend-scroller">
+                        <a class="trend-card" href="#"><img src="https://picsum.photos/seed/a1/350/500" alt="" /></a>
+                        <a class="trend-card" href="#"><img src="https://picsum.photos/seed/a2/350/500" alt="" /></a>
+                        <a class="trend-card" href="#"><img src="https://picsum.photos/seed/a3/350/500" alt="" /></a>
+                        <a class="trend-card" href="#"><img src="https://picsum.photos/seed/a4/350/500" alt="" /></a>
+                        <a class="trend-card" href="#"><img src="https://picsum.photos/seed/a5/350/500" alt="" /></a>
+                        <a class="trend-card" href="#"><img src="https://picsum.photos/seed/a6/350/500" alt="" /></a>
+                        <a class="trend-card" href="#"><img src="https://picsum.photos/seed/a7/350/500" alt="" /></a>
+                    </div>
+                    <button class="trend-btn next" aria-label="Next">&#10095;</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Genres Section -->
+        <section class="genres">
+            <div class="genres-inner container">
+                <div class="genres-left">
+                    <h2 class="genres-title">All the genres. All the tropes. All you.</h2>
+                    <p class="genres-sub">Find your next favorite read, no matter your mood or vibe (we're not judging).</p>
+                </div>
+                <div class="genres-right">
+                    <img src="../images/genres-section.png" alt="Genres illustration" />
+                    <div class="genres-search-overlay fake-search" aria-hidden="true">
+                        <span class="genres-search-icon-circle">
+                            <span class="genres-search-icon"><img src="../images/logo/onlylogo.png" height="6px" width="5px"></span>
+                        </span>
+                        <span class="typing" id="genres-typing"></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Genre Cards Section -->
+        <section class="genre-cards">
+            <div class="container">
+                <div class="genre-grid">
+                    <a class="genre-card" href="#">
+                        <img class="genre-icon" src="../images/story-card_type/romance-illo@120x120.png" alt="Romance" />
+                        <span class="genre-name">Romance</span>
+                    </a>
+                    <a class="genre-card" href="#">
+                        <img class="genre-icon" src="../images/story-card_type/lgbt-illo@120x120.png" alt="LGBTQ+" />
+                        <span class="genre-name">LGBTQ+</span>
+                    </a>
+                    <a class="genre-card" href="#">
+                        <img class="genre-icon" src="../images/story-card_type/werewolf-illo@120x120.png" alt="Werewolf" />
+                        <span class="genre-name">Werewolf</span>
+                    </a>
+                    <a class="genre-card" href="#">
+                        <img class="genre-icon" src="../images/story-card_type/fantasy-illo@120x120.png" alt="Fantasy" />
+                        <span class="genre-name">Fantasy</span>
+                    </a>
+                    <a class="genre-card" href="#">
+                        <img class="genre-icon" src="../images/story-card_type/fanfic-illo@120x120.png" alt="Fanfiction" />
+                        <span class="genre-name">Fanfiction</span>
+                    </a>
+                    <a class="genre-card" href="#">
+                        <img class="genre-icon" src="../images/story-card_type/edschoice-illo@120x120.png" alt="Wattpad Originals" />
+                        <span class="genre-name">Lexivo Originals</span>
+                    </a>
+                    <a class="genre-card" href="#">
+                        <img class="genre-icon" src="../images/story-card_type/newadult-illo@120x120.png" alt="New Adult" />
+                        <span class="genre-name">New Adult</span>
+                    </a>
+                    <a class="genre-card" href="#">
+                        <img class="genre-icon" src="../images/story-card_type/shortstory-illo@120x120.png" alt="Short Story" />
+                        <span class="genre-name">Short Story</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Book Club Section -->
+        <section class="club">
+            <div class="club-inner container">
+                <div class="club-left">
+                    <img class="club-art" src="../images/book-card/book-club.png" alt="People chatting illustration" />
+                    <div class="club-message msg-1">
+                        <img class="msg-avatar" src="../images/profile-card/profile-card-3.png" alt="Profile" />
+                        <div class="msg-body">
+                            <div class="msg-header">auqua33n</div>
+                            <div class="msg-text">we’re all collectively losing our minds over this chapter right?</div>
+                        </div>
+                        <div class="msg-like" aria-label="likes">❤<span>105</span></div>
+                    </div>
+                    <div class="club-message msg-2">
+                        <img class="msg-avatar" src="../images/profile-card/profile-card-4.png" alt="Profile" />
+                        <div class="msg-body">
+                            <div class="msg-header">slowburn_stan</div>
+                            <div class="msg-text">SOMEONE PASS THE POPCORN 🍿</div>
+                        </div>
+                        <div class="msg-like" aria-label="likes">❤<span>98</span></div>
+                    </div>
+                </div>
+                <div class="club-right">
+                    <h2 class="club-title">Your book club, but<br> bigger (way bigger)</h2>
+                    <p class="club-sub">Read, react, and connect with millions of fans who live for the same stories you do.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Fandoms Section -->
+        <section class="fandoms">
+            <div class="fandoms-inner container">
+                <div class="fandoms-left">
+                    <h2 class="fandoms-title">Where stories<br>become fandoms</h2>
+                    <p class="fandoms-sub">Start writing where creators grow together, and stories find their way to books, TV, and film.</p>
+                </div>
+                <div class="fandoms-right">
+                    <div class="poster poster-1">
+                        <img src="https://picsum.photos/seed/p1/320/420" alt="Poster 1" />
+                        <div class="quote-card qc-1">“Watching Through My Window succeed has been incredible and such a blessing.”<span class="quote-author"> – Ariana Godoy</span></div>
+                    </div>
+                    <div class="poster poster-2">
+                        <img src="https://picsum.photos/seed/p2/320/420" alt="Poster 2" />
+                        <div class="quote-card qc-2">“From this app, to bookstores, to the big screen, none of it would’ve happened without the readers.”<span class="quote-author"> – Tay Marley</span></div>
+                    </div>
+                    <div class="poster poster-3">
+                        <img src="https://picsum.photos/seed/p3/320/420" alt="Poster 3" />
+                        <div class="quote-card qc-3">“Float’s journey means so much. I hope it touches you, however you experience it.”<span class="quote-author"> – Kate Marchant</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+ <!-- Read. Watch. Obsess. Section (below Fandoms) -->
+ <section class="trending obsess">
+    <div class="trending-inner container">
+        <h2 class="trending-title">Read. Watch. Obsess.</h2>
+        <div class="trend-wrap">
+            <button class="trend-btn prev" aria-label="Previous">&#10094;</button>
+            <div class="trend-scroller">
+                <a class="trend-card" href="#"><img src="https://picsum.photos/seed/r1/350/500" alt="" /></a>
+                <a class="trend-card" href="#"><img src="https://picsum.photos/seed/r2/350/500" alt="" /></a>
+                <a class="trend-card" href="#"><img src="https://picsum.photos/seed/r3/350/500" alt="" /></a>
+                <a class="trend-card" href="#"><img src="https://picsum.photos/seed/r4/350/500" alt="" /></a>
+                <a class="trend-card" href="#"><img src="https://picsum.photos/seed/r5/350/500" alt="" /></a>
+                <a class="trend-card" href="#"><img src="https://picsum.photos/seed/r6/350/500" alt="" /></a>
+                <a class="trend-card" href="#"><img src="https://picsum.photos/seed/r7/350/500" alt="" /></a>
+            </div>
+            <button class="trend-btn next" aria-label="Next">&#10095;</button>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="footer-inner container">
+        <nav class="footer-nav">
+          <a href="#">Lexivo Originals</a>
+          <a href="#">Try Premium</a>
+          <a href="#">Get the App</a>
+          <a href="#">Language</a>
+          <a href="#">Writers</a>
+          <a href="#">Brand Partnerships</a>
+          <a href="#">Jobs</a>
+          <a href="#">Press</a>
+        </nav>
+
+        <nav class="footer-meta">
+          <a href="#">Terms</a>
+          <a href="#">Privacy</a>
+          <a href="#">Payment Policy</a>
+          <a href="#">Accessibility</a>
+          <a href="#">Help</a>
+          <span class="copyright">© <span id="year"></span> Lexivo</span>
+        </nav>
+      </div>
+    </footer>
+
+    <!-- Browse Mega Menu -->
+    <div class="mega-menu" id="browse-menu" role="menu" hidden>
+      <div class="mega-inner">
+        <div class="mega-left">
+          <div class="mega-left-title">BROWSE</div>
+          <div class="mega-grid">
+            <ul class="mega-col">
+              <li><a class="mega-item" href="#">Romance</a></li>
+              <li><a class="mega-item" href="#">Lexivo Originals</a></li>
+              <li><a class="mega-item" href="#">Fantasy</a></li>
+              <li><a class="mega-item" href="#">Historical Fiction</a></li>
+              <li><a class="mega-item" href="#">Humor</a></li>
+              <li><a class="mega-item" href="#">Diverse Lit</a></li>
+              <li><a class="mega-item" href="#">Science Fiction</a></li>
+              <li><a class="mega-item" href="#">Non-Fiction</a></li>
+            </ul>
+            <ul class="mega-col">
+              <li><a class="mega-item" href="#">Fanfiction</a></li>
+              <li><a class="mega-item" href="#">Werewolf</a></li>
+              <li><a class="mega-item" href="#">Short Story</a></li>
+              <li><a class="mega-item" href="#">Paranormal</a></li>
+              <li><a class="mega-item" href="#">Horror</a></li>
+              <li><a class="mega-item" href="#">Mystery</a></li>
+              <li><a class="mega-item" href="#">The Wattys</a></li>
+              <li><a class="mega-item" href="#">Poetry</a></li>
+            </ul>
+            <ul class="mega-col">
+              <li><a class="mega-item" href="#">LGBTQ+</a></li>
+              <li><a class="mega-item" href="#">New Adult</a></li>
+              <li><a class="mega-item" href="#">Teen Fiction</a></li>
+              <li><a class="mega-item" href="#">Editor's Picks</a></li>
+              <li><a class="mega-item" href="#">Contemporary Lit</a></li>
+              <li><a class="mega-item" href="#">Thriller</a></li>
+              <li><a class="mega-item" href="#">Adventure</a></li>
+            </ul>
+          </div>
+        </div>
+        <aside class="mega-right">
+          <div class="mega-right-title">LEXIVO PICKS</div>
+          <a class="mega-right-item" href="#">Reading Radar</a>
+          <a class="mega-right-item" href="#">Tempted by Trouble 🔥</a>
+          <a class="mega-right-item" href="#">Overcoming the Odds …</a>
+          <a class="mega-right-item" href="#">WEBTOON Productions</a>
+          <a class="mega-right-item" href="#">Lexivo Contests</a>
+          <a class="mega-right-item" href="#">Premium Picks</a>
+        </aside>
+      </div>
+    </div>
+
+    <!-- Community Dropdown -->
+    <div class="dropdown-menu" id="community-menu" role="menu" hidden>
+      <a href="#" class="dropdown-item" role="menuitem">The Watty Awards</a>
+      <a href="#" class="dropdown-item" role="menuitem">Community Happenings</a>
+      <a href="#" class="dropdown-item" role="menuitem">Lexivo Ambassadors</a>
+    </div>
+
+    <!-- Write Dropdown -->
+    <div class="dropdown-menu" id="write-menu" role="menu" hidden>
+      <a href="create-story.html" class="dropdown-item primary" role="menuitem">
+        <span class="ico-create" aria-hidden="true"></span>
+        Create a new story
+      </a>
+      <a href="my-stories.html" class="dropdown-item" role="menuitem">My Stories</a>
+      <div class="dropdown-sep" role="separator"></div>
+      <a href="#" class="dropdown-item" role="menuitem">Helpful writer resources</a>
+      <a href="programs.html" class="dropdown-item" role="menuitem">Lexivo programs & opportunities</a>
+      <a href="#" class="dropdown-item" role="menuitem">Writing contests</a>
+    </div>
+
+    <!-- Auth Modals -->
+    <div class="modal-overlay" id="modal-overlay" hidden></div>
+
+    <!-- Login Modal -->
+    <div class="modal" id="modal-login" role="dialog" aria-modal="true" aria-labelledby="login-title" hidden>
+      <button class="modal-close" data-close>&times;</button>
+      <h2 class="modal-title" id="login-title">Log in to Lexivo</h2>
+
+      <button class="btn btn-oauth google" data-provider="google"><span class="ico">G</span> Log in with Google</button>
+      <button class="btn btn-oauth facebook" data-provider="facebook"><span class="ico">f</span> Log in with Facebook</button>
+
+      <div class="divider"><span>or</span></div>
+
+      <button class="btn btn-black" id="login-email-toggle">Log in with email</button>
+
+      <form class="auth-form" id="login-email-form" hidden>
+        <label class="field">
+          <span>Email</span>
+          <input type="email" name="email" required placeholder="you@example.com" />
+        </label>
+        <label class="field">
+          <span>Password</span>
+          <input type="password" name="password" required minlength="6" placeholder="••••••••" />
+        </label>
+        <button type="submit" class="btn btn-black">Log in</button>
+      </form>
+
+      <a href="#" class="auth-link" id="forgot-password">Forgot password?</a>
+      <div class="auth-switch">Don't have an account? <a href="#" id="to-signup">Sign up</a></div>
+    </div>
+
+    <!-- Signup Modal -->
+    <div class="modal" id="modal-signup" role="dialog" aria-modal="true" aria-labelledby="signup-title" hidden>
+      <button class="modal-close" data-close>&times;</button>
+      <h2 class="modal-title" id="signup-title">Sign up to Lexivo</h2>
+
+      <button class="btn btn-oauth google" data-provider="google"><span class="ico">G</span> Sign up with Google</button>
+      <button class="btn btn-oauth facebook" data-provider="facebook"><span class="ico">f</span> Sign up with Facebook</button>
+
+      <div class="divider"><span>or</span></div>
+
+      <button class="btn btn-black" id="signup-email-toggle">Sign up with email</button>
+
+      <form class="auth-form" id="signup-email-form" hidden>
+        <label class="field">
+          <span>Username</span>
+          <input type="text" name="username" required minlength="3" placeholder="yourname" />
+        </label>
+        <label class="field">
+          <span>Email</span>
+          <input type="email" name="email" required placeholder="you@example.com" />
+        </label>
+        <label class="field">
+          <span>Password</span>
+          <input type="password" name="password" required minlength="6" placeholder="Create a password" />
+        </label>
+        <label class="check">
+          <input type="checkbox" name="tos" required /> I agree to the Terms and Privacy Policy
+        </label>
+        <button type="submit" class="btn btn-black">Create account</button>
+      </form>
+
+      <div class="auth-switch">Already have an account? <a href="#" id="to-login">Log in</a></div>
+    </div>
+
+    <!-- Firebase SDKs (compat) and project config - replace values in firebase-config.js -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+    <script src="firebase-config.js"></script>
+    <script src="app.js"></script>
+  </body>
+  </html>
+        
+        
+
+        
+
+

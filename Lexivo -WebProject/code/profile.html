@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Profile - Lexivo (demo)</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="logo" href="inde.html"><img src="../images/logo/onlylogo.png" alt="Lexivo" /></a>
+      <nav class="nav-right">
+        <a href="inde.html" class="nav-link">Home</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1>Your profile</h1>
+    <div id="profile-info">
+      <img id="profile-avatar" src="../images/logo/onlylogo.png" alt="avatar" width="64" height="64" />
+      <div id="profile-username"></div>
+      <p><a href="inde.html" id="link-logout">Log out</a></p>
+    </div>
+  </main>
+
+  <script>
+    // populate profile from localStorage
+    (function(){
+      try{
+        var s = localStorage.getItem('user');
+        var user = s?JSON.parse(s):null;
+        if (!user) {
+          // redirect to login if not present
+          sessionStorage.setItem('intended','profile.html');
+          window.location.href = 'login.html';
+          return;
+        }
+        document.getElementById('profile-username').textContent = user.username || '';
+        if (user.avatar) document.getElementById('profile-avatar').src = user.avatar;
+        var logout = document.getElementById('link-logout');
+        logout.addEventListener('click', function(e){ e.preventDefault(); localStorage.removeItem('user'); localStorage.removeItem('isLoggedIn'); window.location.href='inde.html'; });
+      }catch(err){ console.error(err); }
+    })();
+  </script>
+</body>
+</html>

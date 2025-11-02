@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sign up - Lexivo (demo)</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="logo" href="inde.html"><img src="../images/logo/onlylogo.png" alt="Lexivo" /></a>
+      <nav class="nav-right">
+        <a href="login.html" id="link-login" class="nav-link">Log in</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1>Create an account</h1>
+    <form id="signup-email-form" class="auth-form">
+      <label class="field"><span>Username</span><input type="text" name="username" required minlength="3" placeholder="yourname" /></label>
+      <label class="field"><span>Email</span><input type="email" name="email" required placeholder="you@example.com" /></label>
+      <label class="field"><span>Password</span><input type="password" name="password" required minlength="6" /></label>
+      <button type="submit" class="btn btn-black">Create account</button>
+    </form>
+    <p>Already have an account? <a href="login.html">Log in</a></p>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

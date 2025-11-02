@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>My stories — Lexivo</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Page specific layout for My Stories */
+    .stories-hero { padding: 48px 0 24px; }
+    .stories-inner { max-width: 920px; margin: 0 auto; }
+    .stories-title { font-size: 36px; font-weight: 800; margin: 12px 0 24px; }
+    .stories-tabs { display:flex; gap:24px; align-items:flex-end; margin-bottom:40px; }
+    .stories-tabs .tab { font-weight:700; padding-bottom:8px; color:#111827; }
+    .stories-tabs .tab.active { border-bottom:3px solid #f97316; color:#111827; }
+    .empty-illustration { text-align:center; padding:40px 0; }
+    .empty-illustration img { width:160px; height:auto; opacity:0.6; display:block; margin:0 auto 18px; }
+    .empty-illustration h3 { font-size:24px; margin:12px 0; }
+    .empty-illustration p { color:#6b7280; margin:0 0 18px; }
+    .create-series { display:inline-flex; align-items:center; gap:12px; padding:14px 28px; border-radius:999px; background:#0f172a; color:#fff; text-decoration:none; font-weight:700; }
+    .learn-more { display:block; margin-top:18px; color:#111827; text-decoration:none; font-weight:700; }
+
+    @media (max-width:720px){
+      .stories-inner{padding:0 18px}
+      .stories-title{font-size:28px}
+    }
+  </style>
+</head>
+<body>
+  <!-- Header (re-uses site header styles) -->
+  <header class="site-header">
+    <div class="container nav">
+      <a class="logo" href="inde.html" aria-label="Lexivo Home">
+        <img src="../images/logo/onlylogo.png" alt="Lexivo" />
+      </a>
+
+      <nav class="nav-left">
+        <a href="#" id="link-browse" class="nav-link">Browse <span class="caret">▾</span></a>
+        <a href="#" id="link-community" class="nav-link">Community <span class="caret">▾</span></a>
+      </nav>
+
+      <form class="search" role="search" id="site-search">
+        <span class="search-icon" aria-hidden="true"><img src="../images/logo/onlylogo.png" height="23px" width="23px"></span>
+        <input type="search" placeholder="Search" aria-label="Search" name="q" />
+      </form>
+
+      <nav class="nav-right">
+        <a href="write.html" id="link-write" class="nav-link">Write <span class="caret">▾</span></a>
+        <a href="#" class="btn btn-primary">Try Premium</a>
+        <a href="profile.html" class="nav-link">P</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="stories-hero">
+    <div class="stories-inner container">
+      <h1 class="stories-title">My stories</h1>
+      <div class="stories-tabs">
+        <div class="tab">All Stories</div>
+        <div class="tab active">Series</div>
+      </div>
+
+      <div class="empty-illustration">
+        <!-- You can replace this with a nicer svg if you have one -->
+        <img src="https://picsum.photos/seed/series/160/160" alt="No series" />
+        <h3>No series created</h3>
+        <p>Start by creating a series from stories you've published</p>
+        <a class="create-series" href="create-story.html">+ Create series</a>
+        <a class="learn-more" href="#">Learn more</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner container">
+      <nav class="footer-nav">
+        <a href="#">Lexivo Originals</a>
+        <a href="#">Try Premium</a>
+        <a href="#">Get the App</a>
+      </nav>
+      <nav class="footer-meta">
+        <a href="#">Terms</a>
+        <a href="#">Privacy</a>
+        <span class="copyright">© <span id="year"></span> Lexivo</span>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    // simple interactions
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
